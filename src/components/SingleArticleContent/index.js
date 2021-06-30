@@ -1,6 +1,7 @@
 import styles from "./singleArticleContent.module.scss";
 import Link from "next/link";
 import Markdown from "markdown-to-jsx";
+import ImageWrapper from "../ImageWrapper";
 
 const SingleArticleContent = ({ author, content, category }) => {
   return (
@@ -22,7 +23,21 @@ const SingleArticleContent = ({ author, content, category }) => {
           </div>
         </aside>
         <div className={styles["articleContent__post"]}>
-          <article>{<Markdown>{content}</Markdown>}</article>
+          <article>
+            {
+              <Markdown
+                options={{
+                  overrides: {
+                    img: {
+                      component: ImageWrapper,
+                    },
+                  },
+                }}
+              >
+                {content}
+              </Markdown>
+            }
+          </article>
         </div>
       </div>
     </section>
