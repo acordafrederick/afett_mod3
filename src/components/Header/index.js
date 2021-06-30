@@ -4,6 +4,34 @@ import styles from "./header.module.scss";
 
 import { motion } from "framer-motion";
 
+const menuVariants = {
+  open: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+};
+
+const linkVariants = {
+  open: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      X: { stiffness: 50, velocity: 2 },
+      y: { stiffness: 50, velocity: 2 },
+    },
+  },
+  closed: {
+    x: -15,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 50 },
+      X: { stiffness: 50 },
+    },
+  },
+};
+
 const Header = ({ categoryList = [] }) => {
   const [open, setOpen] = useState(false);
 
@@ -70,18 +98,21 @@ const Header = ({ categoryList = [] }) => {
           open ? styles["header__menu--open"] : styles["header__menu--closed"]
         }`}
       >
-        <nav className={styles["header__nav"]}>
+        <motion.nav className={styles["header__nav"]} variants={menuVariants}>
           {categoryList.map(({ slug, name }) => (
             <Link key={slug} href={`/${slug}`}>
-              <a
+              <motion.a
+                variants={linkVariants}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 className={styles["header__navlink"]}
                 onClick={() => setOpen(false)}
               >
                 {name}
-              </a>
+              </motion.a>
             </Link>
           ))}
-        </nav>
+        </motion.nav>
       </div>
     </motion.header>
   );
