@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "../components/Header";
 import NewsletterBanner from "../components/NewsletterBanner";
 import Footer from "../components/Footer";
 
@@ -11,6 +12,7 @@ const Home = ({ recentPosts, categoryList }) => {
       <Head>
         <title>paradigm. a tech news blog.</title>
       </Head>
+      <Header categoryList={categoryList} />
       <main>
         <pre>{JSON.stringify(recentPosts, null, 2)}</pre>
         <NewsletterBanner />
