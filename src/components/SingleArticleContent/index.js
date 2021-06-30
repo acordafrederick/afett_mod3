@@ -1,5 +1,6 @@
 import styles from "./singleArticleContent.module.scss";
 import Link from "next/link";
+import Markdown from "markdown-to-jsx";
 
 const SingleArticleContent = ({ author, content, category }) => {
   return (
@@ -21,7 +22,7 @@ const SingleArticleContent = ({ author, content, category }) => {
           </div>
         </aside>
         <div className={styles["articleContent__post"]}>
-          <article>{content}</article>
+          <article>{<Markdown>{content}</Markdown>}</article>
         </div>
       </div>
     </section>
