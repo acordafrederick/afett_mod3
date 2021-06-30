@@ -1,0 +1,24 @@
+@use '../../styles/theme';
+
+.homeArticles {
+  &__grid {
+    @include theme.wrap-section;
+    padding: 40px 0;
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    grid-auto-rows: minmax(300px, 1fr);
+    // Media queries will go here
+    @include theme.xl() {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: minmax(300px, 2fr) minmax(250px, 1fr);
+    }
+
+    @include theme.xl-2() {
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: minmax(550px, 2fr) minmax(250px, 1fr);
+    }
+  }
+  // The rest of the styles for the homeArticles component will go here
+}
