@@ -5,9 +5,7 @@
   color: theme.$primary;
 
   &__wrapper {
-    max-width: 1200px;
-    width: 92vw;
-    margin: 0 auto;
+    @include theme.wrap-section;
     padding-top: 48px;
     padding-bottom: 48px;
     display: flex;
@@ -17,7 +15,7 @@
   &__itemInfo {
     flex: 0 100%;
 
-    @media (min-width: 768px) {
+    @include theme.md() {
       flex: 0 50%;
     }
   }
