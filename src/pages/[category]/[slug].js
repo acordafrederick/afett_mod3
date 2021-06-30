@@ -4,14 +4,14 @@ import SingleArticleBanner from "../../components/SingleArticleBanner";
 import NewsletterBanner from "../../components/NewsletterBanner";
 import Footer from "../../components/Footer";
 
-import { getCategoryList } from "../../utils/categories";
+import { getCategoryList } from "../utils/categories";
 
 import {
   getPostSlugs,
   getSinglePost,
   getRelatedPosts,
 } from "../../utils/posts";
-// import { getCategoryList } from "../../utils/categories";
+import { getCategoryList } from "../../utils/categories";
 
 const Article = ({ postData, categoryList, relatedPosts }) => {
   return (
