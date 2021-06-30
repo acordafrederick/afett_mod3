@@ -16,11 +16,11 @@ const Home = ({ recentPosts, categoryList }) => {
       </Head>
       <Header categoryList={categoryList} />
       <main>
-        <pre>{JSON.stringify(recentPosts, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(recentPosts, null, 2)}</pre> */}
         <HomeArticles posts={recentPosts} />
         <NewsletterBanner />
         <CategoryCards categoryList={categoryList} />
-        <pre>{JSON.stringify(categoryList, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(categoryList, null, 2)}</pre> */}
       </main>
       <Footer />
     </div>

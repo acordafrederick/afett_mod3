@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Header from "../../components/Header";
+import CategoryBanner from "../../components/CategoryBanner";
 import NewsletterBanner from "../../components/NewsletterBanner";
 import Footer from "../../components/Footer";
 
-import { getCategoryList } from "../utils/categories";
+// import { getCategoryList } from "../utils/categories";
 
 import {
   getSingleCategory,
@@ -19,6 +20,10 @@ const Category = ({ title, categoryData, categoryList }) => {
       </Head>
       <Header categoryList={categoryList} />
       <main>
+        <CategoryBanner
+          title={categoryData.name}
+          image={categoryData.categoryImage.url}
+        />
         <pre>{JSON.stringify(categoryData, null, 2)}</pre>
         <NewsletterBanner />
       </main>
