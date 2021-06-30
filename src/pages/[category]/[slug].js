@@ -1,22 +1,72 @@
-import Head from 'next/head';
+import Head from "next/head";
+import Header from "../../components/Header";
+import SingleArticleBanner from "../../components/SingleArticleBanner";
+import SingleArticleContent from "../../components/SingleArticleContent";
+import NewsletterBanner from "../../components/NewsletterBanner";
+import SingleArticleRelated from "../../components/SingleArticleRelated";
+import Footer from "../../components/Footer";
+
+import { motion } from "framer-motion";
+
+import { getCategoryList } from "../../utils/categories";
 
 import {
   getPostSlugs,
   getSinglePost,
   getRelatedPosts,
-} from '../../utils/posts';
-import { getCategoryList } from '../../utils/categories';
+} from "../../utils/posts";
+// import { getCategoryList } from "../../utils/categories";
+
+const variants = {
+  initial: {
+    y: -10,
+    opacity: 0,
+  },
+  enter: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.35,
+      delay: 0.35,
+      when: "beforeChildren",
+    },
+  },
+  exit: {
+    y: 150,
+    opacity: 0,
+    transition: { duration: 0.35, when: "afterChildren" },
+  },
+};
 
 const Article = ({ postData, categoryList, relatedPosts }) => {
   return (
-    <div>
+    <motion.div
+      variants={variants}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+    >
       <Head>
         <title>{postData.title} - paradigm.</title>
       </Head>
+      <Header categoryList={categoryList} />
       <main>
-        <pre>{JSON.stringify(postData, null, 2)}</pre>
+        <SingleArticleBanner
+          featuredImage={postData.featuredImage}
+          title={postData.title}
+          excerpt={postData.excerpt}
+        />
+        <SingleArticleContent
+          author={postData.author.name}
+          content={postData.content}
+          date={postData.createdAt}
+          category={postData.category}
+        />
+        <NewsletterBanner />
+        <SingleArticleRelated posts={relatedPosts} />
       </main>
-    </div>
+      <Footer />
+    </motion.div>
   );
 };
 
