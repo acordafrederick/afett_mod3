@@ -1,4 +1,7 @@
 import Head from "next/head";
+import NewsletterBanner from "../../components/NewsletterBanner";
+import Footer from "../../components/Footer";
+
 import { getCategoryList } from "../utils/categories";
 
 import {
@@ -16,6 +19,7 @@ const Article = ({ postData, categoryList, relatedPosts }) => {
       </Head>
       <main>
         <pre>{JSON.stringify(postData, null, 2)}</pre>
+        <NewsletterBanner />
       </main>
       <Footer />
     </div>
