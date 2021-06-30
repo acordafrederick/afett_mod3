@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import HomeArticles from "../components/HomeArticles";
 import NewsletterBanner from "../components/NewsletterBanner";
 import CategoryCards from "../components/CategoryCards";
 import Footer from "../components/Footer";
@@ -16,6 +17,7 @@ const Home = ({ recentPosts, categoryList }) => {
       <Header categoryList={categoryList} />
       <main>
         <pre>{JSON.stringify(recentPosts, null, 2)}</pre>
+        <HomeArticles posts={recentPosts} />
         <NewsletterBanner />
         <CategoryCards categoryList={categoryList} />
         <pre>{JSON.stringify(categoryList, null, 2)}</pre>
