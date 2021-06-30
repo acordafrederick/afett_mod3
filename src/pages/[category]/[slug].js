@@ -1,11 +1,12 @@
-import Head from 'next/head';
+import Head from "next/head";
+import { getCategoryList } from "../utils/categories";
 
 import {
   getPostSlugs,
   getSinglePost,
   getRelatedPosts,
-} from '../../utils/posts';
-import { getCategoryList } from '../../utils/categories';
+} from "../../utils/posts";
+import { getCategoryList } from "../../utils/categories";
 
 const Article = ({ postData, categoryList, relatedPosts }) => {
   return (
@@ -16,6 +17,7 @@ const Article = ({ postData, categoryList, relatedPosts }) => {
       <main>
         <pre>{JSON.stringify(postData, null, 2)}</pre>
       </main>
+      <Footer />
     </div>
   );
 };

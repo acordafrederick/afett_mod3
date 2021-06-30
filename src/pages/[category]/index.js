@@ -1,10 +1,11 @@
-import Head from 'next/head';
+import Head from "next/head";
+import { getCategoryList } from "../utils/categories";
 
 import {
   getSingleCategory,
   getCategoryList,
   getCategorySlugs,
-} from '../../utils/categories';
+} from "../../utils/categories";
 
 const Category = ({ title, categoryData, categoryList }) => {
   return (
@@ -15,6 +16,7 @@ const Category = ({ title, categoryData, categoryList }) => {
       <main>
         <pre>{JSON.stringify(categoryData, null, 2)}</pre>
       </main>
+      <Footer />
     </div>
   );
 };
