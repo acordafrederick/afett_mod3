@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../../components/Header";
 import CategoryBanner from "../../components/CategoryBanner";
+import CategoryArticles from "../../components/CategoryArticles";
 import NewsletterBanner from "../../components/NewsletterBanner";
 import Footer from "../../components/Footer";
 
@@ -24,7 +25,11 @@ const Category = ({ title, categoryData, categoryList }) => {
           title={categoryData.name}
           image={categoryData.categoryImage.url}
         />
-        <pre>{JSON.stringify(categoryData, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(categoryData, null, 2)}</pre> */}
+        <CategoryArticles
+          posts={categoryData.posts}
+          categorySlug={categoryData.slug}
+        />
         <NewsletterBanner />
       </main>
       <Footer />
