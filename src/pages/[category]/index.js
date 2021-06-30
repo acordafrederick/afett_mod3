@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "../../components/Header";
 import NewsletterBanner from "../../components/NewsletterBanner";
 import Footer from "../../components/Footer";
 
@@ -16,6 +17,7 @@ const Category = ({ title, categoryData, categoryList }) => {
       <Head>
         <title>{title} - paradigm.</title>
       </Head>
+      <Header categoryList={categoryList} />
       <main>
         <pre>{JSON.stringify(categoryData, null, 2)}</pre>
         <NewsletterBanner />

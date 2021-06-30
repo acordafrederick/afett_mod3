@@ -69,8 +69,25 @@ const Header = ({ categoryList = [] }) => {
           </Link>
         </div>
       </div>
-
       {/* NAVIGATION MENU WILL GO HERE */}
+      <div
+        className={`${styles["header__menu"]} ${
+          open ? styles["header__menu--open"] : styles["header__menu--closed"]
+        }`}
+      >
+        <nav className={styles["header__nav"]}>
+          {categoryList.map(({ slug, name }) => (
+            <Link key={slug} href={`/${slug}`}>
+              <a
+                className={styles["header__navlink"]}
+                onClick={() => setOpen(false)}
+              >
+                {name}
+              </a>
+            </Link>
+          ))}
+        </nav>
+      </div>
     </header>
   );
 };
