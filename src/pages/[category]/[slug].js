@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import SingleArticleBanner from "../../components/SingleArticleBanner";
 import SingleArticleContent from "../../components/SingleArticleContent";
 import NewsletterBanner from "../../components/NewsletterBanner";
+import SingleArticleRelated from "../../components/SingleArticleRelated";
 import Footer from "../../components/Footer";
 
 import { motion } from "framer-motion";
@@ -62,7 +63,7 @@ const Article = ({ postData, categoryList, relatedPosts }) => {
           category={postData.category}
         />
         <NewsletterBanner />
-        {/* <SingleArticleRelated posts={relatedPosts} /> */}
+        <SingleArticleRelated posts={relatedPosts} />
       </main>
       <Footer />
     </motion.div>
