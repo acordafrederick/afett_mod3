@@ -2,6 +2,7 @@ import styles from "./singleArticleContent.module.scss";
 import Link from "next/link";
 import Markdown from "markdown-to-jsx";
 import ImageWrapper from "../ImageWrapper";
+import Code from "../Code";
 
 const SingleArticleContent = ({ author, content, category }) => {
   return (
@@ -30,6 +31,9 @@ const SingleArticleContent = ({ author, content, category }) => {
                   overrides: {
                     img: {
                       component: ImageWrapper,
+                    },
+                    pre: {
+                      component: Code,
                     },
                   },
                 }}
