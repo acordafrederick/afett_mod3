@@ -1,10 +1,10 @@
-import Head from 'next/head';
+import Head from "next/head";
 
 import {
   getSingleCategory,
   getCategoryList,
   getCategorySlugs,
-} from '../../utils/categories';
+} from "../../utils/categories";
 
 const Category = ({ title, categoryData, categoryList }) => {
   return (
