@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../../components/Header";
 import SingleArticleBanner from "../../components/SingleArticleBanner";
+import SingleArticleContent from "../../components/SingleArticleContent";
 import NewsletterBanner from "../../components/NewsletterBanner";
 import Footer from "../../components/Footer";
 
@@ -26,6 +27,11 @@ const Article = ({ postData, categoryList, relatedPosts }) => {
           featuredImage={postData.featuredImage}
           title={postData.title}
           excerpt={postData.excerpt}
+        />
+        <SingleArticleContent
+          author={postData.author.name}
+          content={postData.content}
+          category={postData.category}
         />
         <NewsletterBanner />
       </main>
