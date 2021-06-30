@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../../components/Header";
+import SingleArticleBanner from "../../components/SingleArticleBanner";
 import NewsletterBanner from "../../components/NewsletterBanner";
 import Footer from "../../components/Footer";
 
@@ -20,7 +21,12 @@ const Article = ({ postData, categoryList, relatedPosts }) => {
       </Head>
       <Header categoryList={categoryList} />
       <main>
-        <pre>{JSON.stringify(postData, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(postData, null, 2)}</pre> */}
+        <SingleArticleBanner
+          featuredImage={postData.featuredImage}
+          title={postData.title}
+          excerpt={postData.excerpt}
+        />
         <NewsletterBanner />
       </main>
       <Footer />
