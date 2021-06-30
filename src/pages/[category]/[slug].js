@@ -1,17 +1,18 @@
 import Head from "next/head";
 import Header from "../../components/Header";
 import SingleArticleBanner from "../../components/SingleArticleBanner";
+import SingleArticleContent from "../../components/SingleArticleContent";
 import NewsletterBanner from "../../components/NewsletterBanner";
 import Footer from "../../components/Footer";
 
-import { getCategoryList } from "../utils/categories";
+import { getCategoryList } from "../../utils/categories";
 
 import {
   getPostSlugs,
   getSinglePost,
   getRelatedPosts,
 } from "../../utils/posts";
-import { getCategoryList } from "../../utils/categories";
+// import { getCategoryList } from "../../utils/categories";
 
 const Article = ({ postData, categoryList, relatedPosts }) => {
   return (
@@ -26,6 +27,11 @@ const Article = ({ postData, categoryList, relatedPosts }) => {
           featuredImage={postData.featuredImage}
           title={postData.title}
           excerpt={postData.excerpt}
+        />
+        <SingleArticleContent
+          author={postData.author.name}
+          content={postData.content}
+          category={postData.category}
         />
         <NewsletterBanner />
       </main>
