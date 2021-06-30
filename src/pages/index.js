@@ -5,25 +5,51 @@ import NewsletterBanner from "../components/NewsletterBanner";
 import CategoryCards from "../components/CategoryCards";
 import Footer from "../components/Footer";
 
+import { motion } from "framer-motion";
+
 import { getRecentPosts } from "../utils/posts";
 import { getCategoryList } from "../utils/categories";
 
+const variants = {
+  initial: {
+    y: -10,
+    opacity: 0,
+  },
+  enter: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.35,
+      delay: 0.35,
+      when: "beforeChildren",
+    },
+  },
+  exit: {
+    y: 150,
+    opacity: 0,
+    transition: { duration: 0.35, when: "afterChildren" },
+  },
+};
+
 const Home = ({ recentPosts, categoryList }) => {
   return (
-    <div>
+    <motion.div
+      variants={variants}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+    >
       <Head>
         <title>paradigm. a tech news blog.</title>
       </Head>
       <Header categoryList={categoryList} />
       <main>
-        {/* <pre>{JSON.stringify(recentPosts, null, 2)}</pre> */}
         <HomeArticles posts={recentPosts} />
         <NewsletterBanner />
         <CategoryCards categoryList={categoryList} />
-        {/* <pre>{JSON.stringify(categoryList, null, 2)}</pre> */}
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
