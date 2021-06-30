@@ -12,14 +12,14 @@ const HomeArticles = ({ posts }) => {
               <Link href={`/${category.slug}/${slug}`}>
                 <a>
                   <div className={styles["homeArticles__imgWrapper"]}>
-                    {/* <Image
+                    <Image
                       className={styles[`homeArticles__img`]}
                       src={featuredImage.url}
                       alt={title}
                       layout="fill"
                       objectFit="cover"
                       objectPosition="center"
-                    /> */}
+                    />
                   </div>
                   <div className={styles[`homeArticles__itemDetails`]}>
                     <div className={styles[`homeArticles__itemDetailsInner`]}>

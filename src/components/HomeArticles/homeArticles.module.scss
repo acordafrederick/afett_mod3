@@ -21,4 +21,29 @@
     }
   }
   // The rest of the styles for the homeArticles component will go here
+  &__gridItem {
+    position: relative;
+    overflow: hidden;
+    &:last-child {
+      grid-column: span 1;
+      @include theme.xl() {
+        grid-column: span 2;
+      }
+    }
+
+    &:hover {
+      .homeArticles__imgWrapper {
+        filter: none;
+        transform: scale(1.1) rotate(2deg);
+      }
+    }
+  }
+
+  &__imgWrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    filter: blur(2px);
+    transition: all 0.25s ease-in-out;
+  }
 }
